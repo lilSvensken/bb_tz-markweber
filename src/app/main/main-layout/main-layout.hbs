@@ -1,0 +1,15 @@
+{{#>app/index layout-script="./main-layout.js" page-script=page-script}}
+  <div class="main-layout">
+    <div class="main-layout__header-wrapper">
+      {{> main-layout-header/main-layout-header}}
+    </div>
+    <div class="main-layout__content-wrapper">
+      {{#if @partial-block}}
+        {{> @partial-block }}
+      {{/if}}
+    </div>
+    <div class="main-layout__footer-wrapper">
+      {{> main-layout-footer/main-layout-footer}}
+    </div>
+  </div>
+{{/app/index}}

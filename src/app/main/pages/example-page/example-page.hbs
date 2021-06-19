@@ -1,0 +1,10 @@
+{{#>main-layout/main-layout page-script="./example-page.js"}}
+  <h1>Main page</h1>
+
+  <h2>Dynamic iteration:</h2>
+  <div id="example-page-example-api-items-container"></div>
+  <br>
+  <h2>Static iteration:</h2>
+  {{> main-page-example-item/main-page-example-item name='name1' age='10'}}
+  {{> main-page-example-item/main-page-example-item name='name2' age='14'}}
+{{/main-layout/main-layout}}
