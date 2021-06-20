@@ -9,7 +9,7 @@
 
   .location-item {
     font-size: 16px;
-    color: $opacity-color;
+    color: $opacity-color; // todo не тот цвет
     border-bottom: 1px solid $opacity-color;
     transition: color 300ms, border-bottom 300ms;
 

@@ -3,21 +3,19 @@ import { MainPageLocationDescription } from './components/main-page-location-des
 import { mainLayoutService } from '@common/services/main-layout.service';
 
 export class MainPageLocations {
-  private readonly _hostElem = document.querySelector('#main-page-locations-host');
-  private readonly _locationLinkElemsList = this._hostElem.querySelectorAll('.location-item');
-  private readonly _locationDescriptionComponentsList: MainPageLocationDescription[] = [];
-
   constructor() {
-    this._locationLinkElemsList.forEach((locationLinkElem, index) => {
-      this._locationDescriptionComponentsList[index] = new MainPageLocationDescription(index);
+    const hostElem = document.querySelector('#main-page-locations-host');
+    const locationLinkElemsList = hostElem.querySelectorAll('.location-item');
+    locationLinkElemsList.forEach((locationLinkElem, index) => {
+      const mainPageLocationDescriptionComponent = new MainPageLocationDescription(index);
       (locationLinkElem as HTMLElement).onmouseenter = () => {
         mainLayoutService.setIsShading(true);
-        this._locationDescriptionComponentsList[index].show();
+        mainPageLocationDescriptionComponent.show();
       }
 
       (locationLinkElem as HTMLElement).onmouseleave = () => {
         mainLayoutService.setIsShading(false);
-        this._locationDescriptionComponentsList[index].hide();
+        mainPageLocationDescriptionComponent.hide();
       }
     });
   }

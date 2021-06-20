@@ -12,22 +12,10 @@
 
   <div class="block-wrap mod-left">
     <ul class="menu-wrap gl-md-hide">
-      <li class="item-menu">
-        <a>Квартиры</a>
-        <a>Квартиры</a>
-      </li>
-      <li class="item-menu">
-        <a>Ипотека</a>
-        <a>Ипотека</a>
-      </li>
-      <li class="item-menu">
-        <a>Коммерция</a>
-        <a>Коммерция</a>
-      </li>
-      <li class="item-menu">
-        <a>Управляющая компания</a>
-        <a>Управляющая компания</a>
-      </li>
+      {{> main-layout-menu-item/main-layout-menu-item prefixHostId=0 text='Квартиры'}}
+      {{> main-layout-menu-item/main-layout-menu-item prefixHostId=1 text='Ипотека'}}
+      {{> main-layout-menu-item/main-layout-menu-item prefixHostId=2 text='Коммерция'}}
+      {{> main-layout-menu-item/main-layout-menu-item prefixHostId=3 text='Управляющая компания'}}
     </ul>
     <div class="gl-md-show">
       <button type="button" class="phone-btn"></button>

@@ -4,8 +4,6 @@ import { mainLayoutSliderService } from '@common/services/main-layout-slider.ser
 import { interval } from 'rxjs';
 
 export class MainPageNavigate {
-  private _loaderComponent: CommonCircleLoader;
-
   private _hostElem: HTMLElement;
   private _btnNextElem: HTMLElement;
   private _btnPrevElem: HTMLElement;
@@ -13,7 +11,7 @@ export class MainPageNavigate {
   constructor() {
     this.initElems();
 
-    this._loaderComponent = new CommonCircleLoader(
+    const loaderComponent: CommonCircleLoader = new CommonCircleLoader(
       {
         postfixHostId: 1,
         size: 40,
@@ -24,13 +22,13 @@ export class MainPageNavigate {
 
     interval(40)
       .subscribe(() => {
-        this._loaderComponent.incPercent();
-        if (this._loaderComponent.percent === 100) {
+        loaderComponent.incPercent();
+        if (loaderComponent.percent === 100) {
           mainLayoutSliderService.nextSlide();
         }
       });
 
-    mainLayoutSliderService.changeSlide$.subscribe(() => this._loaderComponent.percent = 0);
+    mainLayoutSliderService.changeSlide$.subscribe(() => loaderComponent.percent = 0);
 
     this._btnNextElem.onclick = () => mainLayoutSliderService.nextSlide();
     this._btnPrevElem.onclick = () => mainLayoutSliderService.prevSlide();

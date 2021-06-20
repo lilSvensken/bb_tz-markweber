@@ -61,29 +61,6 @@
     overflow: hidden;
   }
 
-  .item-menu {
-    font-size: 16px;
-    color: $main-color;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 27px;
-
-    &:hover {
-      animation: anim-menu 250ms ease-in 1 normal;
-    }
-
-    @keyframes anim-menu {
-      100% {
-        transform: translateY(-27px);
-      }
-    }
-
-    a {
-      padding: 4px 10px;
-    }
-  }
-
   .burger-btn {
     width: 48px;
     height: 30px;
