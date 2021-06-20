@@ -1,1 +1,44 @@
+@import 'styles/colors';
+@import 'styles/sizes';
 
+.main-page {
+  padding-top: 110px;
+  padding-bottom: 120px;
+  height: 100%;
+
+  @include for-hg-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  @include for-xs-down {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .container {
+    position: relative;
+    height: 100%;
+  }
+
+  .flag {
+    position: absolute;
+    top: 0;
+    left: -3px;
+    width: 205px;
+    height: 55px;
+    object-fit: contain;
+    @include for-hg-down {
+      top: auto;
+      bottom: 0;
+      left: auto;
+      right: -154px;
+    }
+  }
+
+  .blocks-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-gap: 30px;
+    height: 100%;
+  }
+}

@@ -1,14 +1,21 @@
-{{#>app/index layout-script="./main-layout.js" page-script=page-script}}
-  <div class="main-layout">
-    <div class="main-layout__header-wrapper">
+{{#>app/index page-script=page-script}}
+  <div class="main-layout-host">
+
+    {{#if videoIsVisibled}}
+      {{> main-layout-slider/main-layout-slider}}
+    {{/if}}
+
+    <div class="header-wrap">
       {{> main-layout-header/main-layout-header}}
     </div>
-    <div class="main-layout__content-wrapper">
+
+    <div class="layout-content">
       {{#if @partial-block}}
         {{> @partial-block }}
       {{/if}}
     </div>
-    <div class="main-layout__footer-wrapper">
+
+    <div class="footer-wrap">
       {{> main-layout-footer/main-layout-footer}}
     </div>
   </div>

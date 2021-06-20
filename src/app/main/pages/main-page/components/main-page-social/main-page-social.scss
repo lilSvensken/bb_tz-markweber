@@ -1,0 +1,61 @@
+@import 'styles/sizes';
+
+.main-page-social-host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .social-item {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .social-link {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-repeat: no-repeat;
+    transition: 300ms;
+
+    &.mod-facebook {
+      background-image: url("assets/icons/social/facebook.svg");
+      background-size: 10px 20px;
+      &:hover {
+        background-image: url("assets/icons/social/facebook-hover.svg");
+      }
+    }
+
+    &.mod-inst {
+      background-image: url("assets/icons/social/inst.svg");
+      background-size: 20px 20px;
+      &:hover {
+        background-image: url("assets/icons/social/inst-hover.svg");
+      }
+    }
+
+    &.mod-twitter {
+      background-image: url("assets/icons/social/twitter.svg");
+      background-size: 20px 17px;
+      &:hover {
+        background-image: url("assets/icons/social/twitter-hover.svg");
+      }
+    }
+
+    &.mod-vk {
+      background-image: url("assets/icons/social/vk.svg");
+      background-size: 19px 11px;
+      &:hover {
+        background-image: url("assets/icons/social/vk-hover.svg");
+      }
+    }
+  }
+}

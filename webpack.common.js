@@ -2,13 +2,14 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HandlebarsPlugin = require('handlebars-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
-    ['main-layout']: path.resolve(__dirname, 'src/app/main/main-layout/main-layout.ts'),
     ['example-page']: path.resolve(__dirname, 'src/app/main/pages/example-page/example-page.ts'),
     ['main-page']: path.resolve(__dirname, 'src/app/main/pages/main-page/main-page.ts')
   },
@@ -27,24 +28,48 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader',
-          options: {
-            // disable type checker - we will use it in fork plugin
-            transpileOnly: true
-          }
+          loader: 'ts-loader'
         }
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name].[ext]',
+              useRelativePath: true,
+            }
+          }
+        ]
       },
       {
         test: /\.(scss|css)$/,
         use: [
-          process.env.NODE_ENV !== 'production'
+          isDevelopment
             ? 'style-loader'
             : MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader?url=false'
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: isDevelopment,
+              postcssOptions: {
+                autoprefixer: {
+                  browsers: ['last 2 versions']
+                },
+                plugins: [
+                  ['autoprefixer']
+                ]
+              }
+            },
+          },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true
+              sourceMap: isDevelopment
             }
           }
         ]
@@ -58,10 +83,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    // alias: {
-    //   'common': path.resolve(__dirname, 'src/app/common'),
-    //   'modules': path.resolve(__dirname, 'node_modules')
-    // }
+    alias: {
+      '@common': path.resolve(__dirname, 'src', 'app', 'common'),
+      'styles': path.resolve(__dirname, 'src', 'app', 'common', 'styles')
+    }
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -71,9 +96,6 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new CleanWebpackPlugin(),
-    // new HtmlWebpackPlugin({
-    //   template: './src/index.html'
-    // }),
     new ForkTsCheckerWebpackPlugin(),
     new CopyPlugin({
       patterns: [{ from: 'src/assets', to: 'assets' }]
@@ -83,13 +105,12 @@ module.exports = {
       exclude: 'node_modules'
     }),
     new HandlebarsPlugin({
-      entry: path.join(process.cwd(), "src", "app", "main", "pages", "**", "*-page.hbs"),
-      output: path.join(process.cwd(), "dist", "[name].html"),
+      entry: path.join(process.cwd(), 'src', 'app', 'main', 'pages', '**', '*-page.hbs'),
+      output: path.join(process.cwd(), 'dist', '[name].html'),
 
       partials: [
-        path.join(__dirname, "src", "**", "*.hbs")
+        path.join(__dirname, 'src', '**', '*.hbs')
       ]
     })
-  ],
-  // ...generateConfig('./src/app/main/pages')
+  ]
 };

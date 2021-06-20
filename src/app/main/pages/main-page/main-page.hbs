@@ -1,2 +1,14 @@
-{{#>main-layout/main-layout page-script="./main-page.js"}}
+{{#>main-layout/main-layout page-script="./main-page.js" videoIsVisibled=true}}
+  <div class="main-page">
+    <div class="container">
+      <img class="flag" src="assets/icons/flag.png" alt="flag">
+      <div class="blocks-wrap gl-page-content">
+        {{> main-page-social/main-page-social }}
+
+        {{> main-page-locations/main-page-locations }}
+
+        {{> main-page-navigate/main-page-navigate }}
+      </div>
+    </div>
+  </div>
 {{/main-layout/main-layout}}

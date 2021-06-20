@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  {{#if layout-script}}
-    <script defer src="{{layout-script}}"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Markweber</title>
+  {{#if page-script}}
     <script defer src="{{page-script}}"></script>
   {{/if}}
+  <link rel="stylesheet" type="text/css" href="assets/font/core-sans.css">
 </head>
 <body>
 {{#if @partial-block}}

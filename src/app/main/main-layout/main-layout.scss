@@ -1,0 +1,18 @@
+@import 'styles/consts';
+
+.main-layout-host {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  .layout-content {
+    flex-grow: 1;
+  }
+
+  .header-wrap, .layout-content, .footer-wrap {
+    position: relative;
+    z-index: 3;
+  }
+}

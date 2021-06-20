@@ -1,16 +1,13 @@
-import '../../common/styles/styles.scss';
+import 'styles/styles.scss';
 import './main-layout.scss';
-
-// components
 import { MainLayoutHeader } from './components/main-layout-header/main-layout-header';
 import { MainLayoutFooter } from './components/main-layout-footer/main-layout-footer';
+import { MainLayoutSlider } from './components/main-layout-slider/main-layout-slider';
 
 export class MainLayout {
   constructor() {
-    console.log('log-main-layout');
+    new MainLayoutHeader();
+    new MainLayoutSlider();
+    new MainLayoutFooter();
   }
 }
-
-new MainLayout();
-new MainLayoutHeader();
-new MainLayoutFooter();

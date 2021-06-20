@@ -1,0 +1,41 @@
+@import 'styles/sizes';
+
+.main-page-navigate-host {
+  display: flex;
+
+  @include for-hg-down {
+    flex-direction: column;
+  }
+
+  .btns-slide-wrap {
+    display: flex;
+    margin-right: 30px;
+
+    @include for-hg-down {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  .nav-wrap {
+    max-width: 581px;
+
+    @include for-bg-down {
+      width: 100%;
+    }
+  }
+
+  .btns-nav-wrap {
+    margin-top: 50px;
+    display: flex;
+
+    @include for-sm-down {
+      flex-direction: column;
+    }
+  }
+
+  .btn-choose {
+    margin-right: 30px;
+
+  }
+}
