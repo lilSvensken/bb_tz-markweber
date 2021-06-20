@@ -1,4 +1,5 @@
-<div class="main-page-locations-host gl-bg-hide">
+<div id="main-page-locations-host"
+     class="main-page-locations-host gl-bg-hide">
   <ul class="locations-list">
     <li><a class="location-item">Северный парк</a></li>
     <li><a class="location-item">Ренесанс</a></li>
@@ -11,12 +12,59 @@
     <li><a class="location-item">Краски</a></li>
   </ul>
 
-  <div class="location-description">
-    <img src="assets/icons/locations-api/north-park.png" alt="location"
-         class="location-image">
-    <div class="location-caption">Северный парк</div>
-    <div class="location-value">
-      Жилой комплекс небывалого масштаба с развитой инфраструктурой
-    </div>
+  <div class="location-descriptions-wrap">
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=0
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Северный парк'
+      description='Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
+
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=1
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Ренесанс'
+      description='Ренесанс Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
+
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=2
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Станция Столичная'
+      description='Станция Столичная Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
+
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=3
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Компасс сити'
+      description='Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
+
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=4
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Лето'
+      description='Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
+
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=5
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Бруклин'
+      description='Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
+
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=6
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Сказочный сад'
+      description='Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
+
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=7
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Монблан'
+      description='Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
+
+    {{> main-page-location-description/main-page-location-description
+      postfixHostId=8
+      imageSrc='assets/images/locations/north-park.png'
+      caption='Краски'
+      description='Жилой комплекс небывалого масштаба с развитой инфраструктурой'}}
   </div>
 </div>

@@ -7,10 +7,12 @@ import { MainPageLocations } from './components/main-page-locations/main-page-lo
 import { MainPageNavigate } from './components/main-page-navigate/main-page-navigate';
 
 export class MainPage {
+  constructor() {
+    new MainPageSocial();
+    new MainPageLocations();
+    new MainPageNavigate();
+  }
 }
 
 new MainLayout();
 new MainPage();
-new MainPageSocial();
-new MainPageLocations();
-new MainPageNavigate();

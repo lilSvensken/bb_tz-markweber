@@ -2,7 +2,7 @@ import { Subject } from 'rxjs';
 import { EventChangeSlideType } from '@common/enums/event-change-slide-type';
 import { EventChangeSlide } from '@common/interfaces/event-change-slide';
 
-export class MainLayoutSliderService {
+class MainLayoutSliderService {
   private readonly _changeSlide$ = new Subject<EventChangeSlide>();
   private _currentVideoIndex = 0;
   private _countSlides = 0;
