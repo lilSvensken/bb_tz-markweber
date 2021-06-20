@@ -2,6 +2,7 @@ import './main-page-navigate.scss';
 import { CommonCircleLoader } from '@common/components/common-circle-loader/common-circle-loader';
 import { mainLayoutSliderService } from '@common/services/main-layout-slider.service';
 import { interval } from 'rxjs';
+import { MainPageSlideDescription } from './components/main-page-slide-description/main-page-slide-description';
 
 export class MainPageNavigate {
   private _hostElem: HTMLElement;
@@ -38,5 +39,8 @@ export class MainPageNavigate {
     this._hostElem = document.querySelector('#main-page-navigate-host');
     this._btnNextElem = this._hostElem.querySelector('#btn-next');
     this._btnPrevElem = this._hostElem.querySelector('#btn-prev');
+
+    const slideDescriptionElemsList = document.querySelectorAll('.main-page-slide-description');
+    slideDescriptionElemsList.forEach((_, index) => new MainPageSlideDescription(index));
   }
 }

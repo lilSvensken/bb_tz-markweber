@@ -18,6 +18,7 @@
   }
 
   .nav-wrap {
+    position: relative;
     max-width: 581px;
 
     @include for-bg-down {

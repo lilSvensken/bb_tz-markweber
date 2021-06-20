@@ -24,36 +24,73 @@
     height: 100%;
     display: block;
     background-repeat: no-repeat;
-    transition: 300ms;
+    position: relative;
+
+    &:after, &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 300ms;
+      background-size: auto;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+
+    &:before {
+      opacity: 0;
+    }
+
+    &:hover {
+      &:after {
+        opacity: 0;
+      }
+
+      &:before {
+        opacity: 1;
+      }
+    }
 
     &.mod-facebook {
-      background-image: url("assets/icons/social/facebook.svg");
-      background-size: 10px 20px;
-      &:hover {
+      &:after {
+        background-image: url("assets/icons/social/facebook.svg");
+      }
+
+      &:before {
         background-image: url("assets/icons/social/facebook-hover.svg");
       }
     }
 
     &.mod-inst {
-      background-image: url("assets/icons/social/inst.svg");
-      background-size: 20px 20px;
-      &:hover {
+      &:after {
+        background-image: url("assets/icons/social/inst.svg");
+      }
+
+      &:before {
         background-image: url("assets/icons/social/inst-hover.svg");
       }
     }
 
     &.mod-twitter {
-      background-image: url("assets/icons/social/twitter.svg");
-      background-size: 20px 17px;
-      &:hover {
+      &:after {
+        background-image: url("assets/icons/social/twitter.svg");
+      }
+
+      &:before {
         background-image: url("assets/icons/social/twitter-hover.svg");
       }
     }
 
     &.mod-vk {
-      background-image: url("assets/icons/social/vk.svg");
-      background-size: 19px 11px;
-      &:hover {
+      &:after {
+        background-image: url("assets/icons/social/vk.svg");
+      }
+
+      &:before {
         background-image: url("assets/icons/social/vk-hover.svg");
       }
     }
