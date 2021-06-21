@@ -2,15 +2,17 @@ import './main-page-navigate.scss';
 import { CommonCircleLoader } from '@common/components/common-circle-loader/common-circle-loader';
 import { mainLayoutSliderService } from '@common/services/main-layout-slider.service';
 import { interval } from 'rxjs';
-import { MainPageSlideDescription } from './components/main-page-slide-description/main-page-slide-description';
+import { MainPageSlideDescriptionsList } from './components/main-page-slide-descriptions-list/main-page-slide-descriptions-list';
 
 export class MainPageNavigate {
-  private _hostElem: HTMLElement;
-  private _btnNextElem: HTMLElement;
-  private _btnPrevElem: HTMLElement;
-
   constructor() {
-    this.initElems();
+    new MainPageSlideDescriptionsList();
+
+    const hostElem: HTMLElement = document.querySelector('#main-page-navigate-host');
+    const btnNextElem: HTMLElement = hostElem.querySelector('#btn-next');
+    const btnPrevElem: HTMLElement = hostElem.querySelector('#btn-prev');
+    btnNextElem.onclick = () => mainLayoutSliderService.nextSlide();
+    btnPrevElem.onclick = () => mainLayoutSliderService.prevSlide();
 
     const loaderComponent: CommonCircleLoader = new CommonCircleLoader(
       {
@@ -30,17 +32,5 @@ export class MainPageNavigate {
       });
 
     mainLayoutSliderService.changeSlide$.subscribe(() => loaderComponent.percent = 0);
-
-    this._btnNextElem.onclick = () => mainLayoutSliderService.nextSlide();
-    this._btnPrevElem.onclick = () => mainLayoutSliderService.prevSlide();
-  }
-
-  initElems(): void {
-    this._hostElem = document.querySelector('#main-page-navigate-host');
-    this._btnNextElem = this._hostElem.querySelector('#btn-next');
-    this._btnPrevElem = this._hostElem.querySelector('#btn-prev');
-
-    const slideDescriptionElemsList = document.querySelectorAll('.main-page-slide-description');
-    slideDescriptionElemsList.forEach((_, index) => new MainPageSlideDescription(index));
   }
 }

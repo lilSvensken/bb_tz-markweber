@@ -1,5 +1,6 @@
 $transition-duration-on-right: 300ms;
 $transition-duration-on-left: 600ms;
+$move-step: 50px;
 
 .main-page-slide-description {
   position: absolute;
@@ -9,16 +10,18 @@ $transition-duration-on-left: 600ms;
   opacity: 0;
 
   &.mod-on-right {
-    left: -50px;
+    left: -($move-step);
     transition-duration: $transition-duration-on-right;
+    margin-right: $move-step * 2;
   }
 
   &.mod-on-lift {
-    left: 50px;
+    left: $move-step;
     transition-duration: $transition-duration-on-left;
   }
 
   &.mod-hide {
+    pointer-events: none;
     opacity: 0;
 
     &.mod-on-right {
@@ -36,29 +39,29 @@ $transition-duration-on-left: 600ms;
     opacity: 1;
 
     &.mod-on-right {
-      transform: translateX(50px);
+      transform: translateX($move-step);
     }
 
     &.mod-on-lift {
-      transform: translateX(-50px);
+      transform: translateX(-($move-step));
     }
   }
 
   @keyframes amin-hide-on-right {
     0% {
-      transform: translateX(50px);
+      transform: translateX($move-step);
     }
     100% {
-      transform: translateX(100px);
+      transform: translateX($move-step * 2);
     }
   }
 
   @keyframes amin-hide-on-left {
     0% {
-      transform: translateX(-50px);
+      transform: translateX(-($move-step));
     }
     100% {
-      transform: translateX(-100px);
+      transform: translateX(-($move-step * 2));
     }
   }
 }
