@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" id="footer-host">
   <form class="form-wrap gl-page-content gl-md-hide">
 
     <div class="control-wrap">
@@ -32,13 +32,14 @@
       <div class="control-inputs-wrap">
         <label class="input-wrap mod-line">
           <span class="input-content">от</span>
-          <input type="number">
+          <input type="number" id="input-square-from">
         </label>
         <label class="input-wrap mod-line">
           <span class="input-content">до</span>
-          <input type="number">
+          <input type="number" id="input-square-to">
         </label>
       </div>
+      {{> common-double-slider/common-double-slider prefixHostId=0}}
     </div>
 
     <div class="control-wrap">
@@ -46,13 +47,14 @@
       <div class="control-inputs-wrap">
         <label class="input-wrap mod-line">
           <span class="input-content">от</span>
-          <input type="number">
+          <input type="number" id="input-cost-from">
         </label>
         <label class="input-wrap mod-line">
           <span class="input-content">до</span>
-          <input type="number">
+          <input type="number" id="input-cost-to">
         </label>
       </div>
+      {{> common-double-slider/common-double-slider prefixHostId=1}}
     </div>
 
     <div class="control-wrap">

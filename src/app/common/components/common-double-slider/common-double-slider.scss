@@ -1,0 +1,29 @@
+.common-double-slider-host {
+  &.noUi-horizontal {
+    height: 3px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+
+    .noUi-connect {
+      background: #D90002;
+    }
+
+    .noUi-handle {
+      width: 21px;
+      height: 21px;
+      border-radius: 100%;
+      background: #D90002;
+      box-shadow: 0 0 8px #ED2426;
+      border: none;
+      cursor: pointer;
+      &:before {
+        content: none;
+      }
+      &:after {
+        content: none;
+      }
+    }
+  }
+}

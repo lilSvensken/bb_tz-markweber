@@ -11,6 +11,7 @@ export class MainPageNavigate {
     const hostElem: HTMLElement = document.querySelector('#main-page-navigate-host');
     const btnNextElem: HTMLElement = hostElem.querySelector('#btn-next');
     const btnPrevElem: HTMLElement = hostElem.querySelector('#btn-prev');
+
     btnNextElem.onclick = () => mainLayoutSliderService.nextSlide();
     btnPrevElem.onclick = () => mainLayoutSliderService.prevSlide();
 
