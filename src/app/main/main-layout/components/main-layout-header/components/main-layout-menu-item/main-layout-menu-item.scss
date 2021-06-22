@@ -2,27 +2,29 @@
 
 $height-link: 27px;
 
-.main-layout-menu-item-host {
-  font-size: 16px;
-  color: $main-color;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: $height-link;
+.main-layout-menu-item {
+  &.main-layout-menu-item-host {
+    font-size: 16px;
+    color: $main-color;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: $height-link;
 
-  &.mod-anim, &:hover {
-    animation: anim-menu 250ms ease-in 1 normal forwards;
-  }
+    &.mod-anim, &:hover {
+      animation: anim-menu 250ms ease-in 1 normal forwards;
+    }
 
-  &:hover {
-    .text {
-      &:last-child {
-        opacity: .5;
+    &:hover {
+      .text {
+        &:last-child {
+          opacity: .5;
+        }
       }
     }
   }
 
-  .text {
+  &.text {
     display: block;
     padding: 4px 10px;
   }

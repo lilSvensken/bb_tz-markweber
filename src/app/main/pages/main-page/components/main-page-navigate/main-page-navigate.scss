@@ -1,13 +1,15 @@
 @import 'styles/sizes';
 
-.main-page-navigate-host {
-  display: flex;
+.main-page-navigate {
+  &.main-page-navigate-host {
+    display: flex;
 
-  @include for-hg-down {
-    flex-direction: column;
+    @include for-hg-down {
+      flex-direction: column;
+    }
   }
 
-  .btns-slide-wrap {
+  &.btns-slide-wrap {
     display: flex;
     margin-right: 30px;
 
@@ -17,7 +19,7 @@
     }
   }
 
-  .nav-wrap {
+  &.nav-wrap {
     position: relative;
     max-width: 581px;
 
@@ -26,7 +28,7 @@
     }
   }
 
-  .btns-nav-wrap {
+  &.btns-nav-wrap {
     margin-top: 50px;
     display: flex;
 
@@ -35,7 +37,7 @@
     }
   }
 
-  .btn-choose {
+  &.btn-choose {
     margin-right: 30px;
 
   }

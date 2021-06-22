@@ -2,25 +2,27 @@
 @import 'styles/sizes';
 
 .main-page {
-  padding-top: 110px;
-  padding-bottom: 120px;
-  height: 100%;
+  &.main-page-host {
+    padding-top: 110px;
+    padding-bottom: 120px;
+    height: 100%;
 
-  @include for-hg-down {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  @include for-xs-down {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    @include for-hg-down {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    @include for-xs-down {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
   }
 
-  .container {
+  &.container {
     position: relative;
     height: 100%;
   }
 
-  .flag {
+  &.flag {
     position: absolute;
     top: 0;
     left: -3px;
@@ -35,7 +37,7 @@
     }
   }
 
-  .blocks-wrap {
+  &.blocks-wrap {
     display: grid;
     grid-template-columns: 1fr auto auto;
     grid-gap: 30px;

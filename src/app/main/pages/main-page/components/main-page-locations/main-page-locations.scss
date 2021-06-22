@@ -1,13 +1,13 @@
 @import 'styles/colors';
 
-.main-page-locations-host {
-  .locations-list {
+.main-page-locations {
+  &.locations-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0 44px;
   }
 
-  .location-item {
+  &.location-item {
     font-size: 16px;
     color: $main-gray-color; // todo не тот цвет
     transition: color 300ms, border-bottom 300ms;
@@ -21,7 +21,7 @@
     }
   }
 
-  .location-descriptions-wrap {
+  &.location-descriptions-wrap {
     margin-top: 23px;
     position: relative;
   }

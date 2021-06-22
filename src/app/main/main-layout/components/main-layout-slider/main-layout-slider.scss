@@ -2,17 +2,19 @@ $transition-timing-function: cubic-bezier(.5, .1, .3, 1);
 $transition-duration-next: 800ms;
 $transition-duration-prev: 300ms;
 
-.main-layout-slider-host {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.main-layout-slider {
+  &.main-layout-slider-host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-  .video-wrap {
+  &.video-wrap {
     position: absolute;
     top: 0;
     right: 0;
@@ -65,7 +67,7 @@ $transition-duration-prev: 300ms;
     }
   }
 
-  .video {
+  &.video {
     position: absolute;
     top: 0;
     right: 0;

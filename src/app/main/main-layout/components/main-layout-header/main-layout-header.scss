@@ -3,37 +3,39 @@
 @import 'styles/sizes';
 
 .header {
-  width: 100%;
-  height: 90px;
-  display: flex;
-  justify-content: space-between;
-  padding-top: 36px;
+  &.header-host {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 36px;
 
-  @include for-sm-down {
-    padding-top: 26px;
-  }
-
-  .block-wrap {
-    margin-right: 20px;
-
-    &:last-child {
-      margin-right: 0;
+    @include for-sm-down {
+      padding-top: 26px;
     }
 
-    &.mod-left {
-      display: flex;
-      align-items: flex-start;
+    .block-wrap {
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.mod-left {
+        display: flex;
+        align-items: flex-start;
+      }
     }
   }
 
-  .logo {
+  &.logo {
     width: 159px;
     height: 47px;
     object-fit: contain;
     margin-left: -28px;
   }
 
-  .phone {
+  &.phone {
     display: block;
     font-size: 20px;
     letter-spacing: -.03em;
@@ -41,7 +43,7 @@
     margin-bottom: 8px;
   }
 
-  .phone-btn {
+  &.phone-btn {
     background-image: url('assets/icons/phone.svg');
     border-radius: 100%;
     width: 36px;
@@ -51,17 +53,17 @@
     background-position: center;
   }
 
-  .phone-hint {
+  &.phone-hint {
     font-size: 16px;
     color: $main-gray-color;
   }
 
-  .menu-wrap {
+  &.menu-wrap {
     display: flex;
     overflow: hidden;
   }
 
-  .burger-btn {
+  &.burger-btn {
     width: 48px;
     height: 30px;
     position: relative;
@@ -86,3 +88,4 @@
     }
   }
 }
+

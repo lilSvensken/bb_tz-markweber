@@ -1,22 +1,24 @@
 @import 'styles/colors';
 
-.location-description-host {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 373px;
-  transition: transform, 300ms;
-  transform: translateY(10%);
-  opacity: 0;
-  pointer-events: none;
+.location-description {
+  &.location-description-host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 373px;
+    transition: transform, 300ms;
+    transform: translateY(10%);
+    opacity: 0;
+    pointer-events: none;
 
-  &.mod-show {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: initial;
+    &.mod-show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: initial;
+    }
   }
 
-  .image {
+  &.image {
     width: 100%;
     height: 231px;
     border-radius: 10px;
@@ -24,14 +26,14 @@
     margin-bottom: 18px;
   }
 
-  .caption {
+  &.caption {
     font-size: 16px;
     line-height: 19px;
     margin-bottom: 9px;
     color: $main-color;
   }
 
-  .description {
+  &.description {
     font-size: 16px;
     line-height: 19px;
     color: $main-gray-color;

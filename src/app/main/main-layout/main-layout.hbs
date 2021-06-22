@@ -1,21 +1,21 @@
 {{#>app/index page-script=page-script}}
-  <div id="main-layout-host" class="main-layout-host">
+  <div id="main-layout-host" class="main-layout main-layout-host">
 
     {{#if videoIsVisibled}}
       {{> main-layout-slider/main-layout-slider}}
     {{/if}}
 
-    <div class="header-wrap">
+    <div class="main-layout header-wrap">
       {{> main-layout-header/main-layout-header}}
     </div>
 
-    <div class="layout-content">
+    <div class="main-layout layout-content">
       {{#if @partial-block}}
         {{> @partial-block }}
       {{/if}}
     </div>
 
-    <div class="footer-wrap">
+    <div class="main-layout footer-wrap">
       {{> main-layout-footer/main-layout-footer}}
     </div>
   </div>

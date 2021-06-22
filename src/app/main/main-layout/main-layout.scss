@@ -1,17 +1,25 @@
 @import 'styles/consts';
 
-.main-layout-host {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
+.main-layout {
+  &.main-layout-host {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
 
-  .layout-content {
+    &.mod-shading {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.layout-content {
     flex-grow: 1;
   }
 
-  .header-wrap, .layout-content, .footer-wrap {
+  &.header-wrap, &.layout-content, &.footer-wrap {
     position: relative;
     z-index: 3;
   }
@@ -29,10 +37,5 @@
     z-index: 3;
     opacity: 0;
   }
-
-  &.mod-shading {
-    &:before {
-      opacity: 1;
-    }
-  }
 }
+
