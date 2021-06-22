@@ -31,6 +31,11 @@
   @include for-hg-down {
     font-size: 34px;
   }
+  @include for-xs-down {
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 31px;
+  }
 }
 
 // btn
@@ -59,11 +64,13 @@
   transition: 400ms;
   position: relative;
   max-width: 212px;
+  white-space: nowrap;
 
-  @include for-sm-down {
+  @include for-xs-down {
     font-size: 12px;
     line-height: 19px;
-    max-width: 212px;
+    max-width: 154px;
+    padding: 10px 15px 10px 30px;
   }
 
   &:before {

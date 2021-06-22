@@ -2,9 +2,10 @@
 
 .main-page-social-host {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 190px;
+  @include for-hg-down {
+    margin-top: 90px;
+  }
 
   .social-item {
     width: 40px;

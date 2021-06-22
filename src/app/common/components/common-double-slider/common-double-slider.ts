@@ -1,6 +1,6 @@
 import './common-double-slider.scss';
 import 'nouislider/dist/nouislider.css';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import noUiSlider, { API } from 'nouislider';
 import { Options } from 'nouislider/src/nouislider';
 import { distinctUntilChanged, filter, shareReplay } from 'rxjs/operators';

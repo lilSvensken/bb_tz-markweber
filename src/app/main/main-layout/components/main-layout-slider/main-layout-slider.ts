@@ -34,6 +34,7 @@ export class MainLayoutSlider {
     this._hostElem = document.querySelector('#main-layout-slider-host');
     this._videoWrapElemList = this._hostElem.querySelectorAll('.video-wrap');
     this._videoElemList = this._hostElem.querySelectorAll('.video');
+    this._videoElemList = this._hostElem.querySelectorAll('.video');
 
     this.setSizeVideoElems();
 
@@ -109,11 +110,10 @@ export class MainLayoutSlider {
 
   private setSizeVideoElems(): void {
     this._videoElemList.forEach((videoElem: HTMLVideoElement) => {
-      console.log(videoElem.clientHeight, innerHeight)
       const ratioWidth = videoElem.clientWidth / innerWidth;
       const ratioHeight = videoElem.clientHeight / innerHeight;
 
-      if (ratioWidth > ratioHeight) {
+      if (ratioWidth >= ratioHeight) {
         videoElem.style.height = '100%';
         videoElem.style.width = 'auto';
       } else {

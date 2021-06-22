@@ -4,14 +4,16 @@
   .locations-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 12px 44px;
+    grid-gap: 0 44px;
   }
 
   .location-item {
     font-size: 16px;
     color: $main-gray-color; // todo не тот цвет
-    border-bottom: 1px solid $main-gray-color;
     transition: color 300ms, border-bottom 300ms;
+    padding: 6px;
+    text-decoration: underline;
+    display: inline-block;
 
     &:hover {
       border-color: $main-color;

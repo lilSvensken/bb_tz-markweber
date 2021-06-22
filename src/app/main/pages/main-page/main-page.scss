@@ -28,9 +28,9 @@
     height: 55px;
     object-fit: contain;
     @include for-hg-down {
-      top: auto;
-      bottom: 0;
-      left: auto;
+      position: fixed;
+      top: 66vh;
+      left: initial;
       right: -154px;
     }
   }

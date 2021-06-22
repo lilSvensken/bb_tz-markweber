@@ -1,6 +1,14 @@
 import './main-layout-footer.scss';
 import { CommonDoubleSlider } from '@common/components/common-double-slider/common-double-slider';
 
+interface ParamsSlider {
+  index: number;
+  rangeMin: number;
+  rangeMax: number;
+  step: number;
+  start: number[];
+}
+
 export class MainLayoutFooter {
   constructor() {
     const hostElem = document.querySelector('#footer-host');
@@ -8,76 +16,75 @@ export class MainLayoutFooter {
     const inputSquareTo: HTMLInputElement = hostElem.querySelector('#input-square-to');
     const inputCostFrom: HTMLInputElement = hostElem.querySelector('#input-cost-from');
     const inputCostTo: HTMLInputElement = hostElem.querySelector('#input-cost-to');
+    const selectTitleElem: HTMLInputElement = hostElem.querySelector('#select-title');
+    const optionsWrapElem: HTMLInputElement = hostElem.querySelector('#options-wrap');
 
-    for (let i = 0; i < 2; i++) {
-      let rangeMin: number;
-      let rangeMax: number;
-      let step: number;
-      let start: number[];
-      if (i === 0) {
-        rangeMin = 0;
-        rangeMax = 218;
-        step = 1;
-        start = [22, 196];
+    const paramsSquareSlider: ParamsSlider = {
+      index: 0,
+      rangeMin: 0,
+      rangeMax: 218,
+      step: 1,
+      start: [22, 196]
+    }
+
+    const paramsCostSlider: ParamsSlider = {
+      index: 1,
+      rangeMin: 0,
+      rangeMax: 20,
+      step: 0.1,
+      start: [1.5, 18.5]
+    }
+
+    this.settingSlider(inputSquareFrom, inputSquareTo, paramsSquareSlider);
+    this.settingSlider(inputCostFrom, inputCostTo, paramsCostSlider);
+
+    inputSquareFrom.value = String(paramsSquareSlider.start[0]);
+    inputSquareTo.value = String(paramsSquareSlider.start[1]);
+    inputCostFrom.value = String(paramsCostSlider.start[0]);
+    inputCostTo.value = String(paramsCostSlider.start[1]);
+
+    let isOpenSelectOptions = false;
+
+    selectTitleElem.onclick = () => {
+      if (isOpenSelectOptions) {
+        optionsWrapElem.classList.remove('mod-show');
       } else {
-        rangeMin = 0;
-        rangeMax = 20;
-        step = 0.1;
-        start = [1.5, 18.5];
+        optionsWrapElem.classList.add('mod-show');
       }
+      isOpenSelectOptions = !isOpenSelectOptions;
+    }
+  }
 
-      inputSquareFrom.value = String(rangeMin);
-      inputSquareTo.value = String(rangeMax);
-      inputCostFrom.value = String(rangeMin);
-      inputCostTo.value = String(rangeMax);
+  settingSlider(inputFrom: HTMLInputElement, inputTo: HTMLInputElement, paramsSlider: ParamsSlider) {
+    const sliderComponent = new CommonDoubleSlider({
+      prefixHostId: paramsSlider.index,
+      start: paramsSlider.start,
+      connect: true,
+      range: {
+        min: paramsSlider.rangeMin,
+        max: paramsSlider.rangeMax
+      },
+      step: paramsSlider.step,
+      animationDuration: 2000
+    });
 
-      const sliderComponent = new CommonDoubleSlider({
-        prefixHostId: i,
-        start: start,
-        connect: true,
-        range: {
-          min: 0,
-          max: rangeMax
-        },
-        step: step,
-        animationDuration: 2000
+    sliderComponent.updateFrom$
+      .subscribe(valueSlider => {
+        inputFrom.value = valueSlider;
       });
 
-      sliderComponent.updateFrom$
-        .subscribe((w) => {
-          if (i === 0) {
-            inputSquareFrom.value = w;
-          } else {
-            inputCostFrom.value = w;
-          }
-        });
+    sliderComponent.updateTo$
+      .subscribe(valueSlider => {
+        inputTo.value = valueSlider;
+      });
 
-      sliderComponent.updateTo$
-        .subscribe((w) => {
-          if (i === 0) {
-            inputSquareTo.value = w;
-          } else {
-            inputCostTo.value = w;
-          }
-        });
+    inputFrom.oninput = () => {
+      sliderComponent.onUpdateValueFrom(inputFrom.value);
+    }
 
-      if (i === 0) {
-        inputSquareFrom.oninput = () => {
-          sliderComponent.onUpdateValueFrom(inputSquareFrom.value);
-        }
-
-        inputSquareTo.oninput = () => {
-          sliderComponent.onUpdateValueTo(inputSquareFrom.value);
-        }
-      } else {
-        inputCostFrom.oninput = () => {
-          sliderComponent.onUpdateValueFrom(inputCostFrom.value);
-        }
-
-        inputCostTo.oninput = () => {
-          sliderComponent.onUpdateValueTo(inputCostTo.value);
-        }
-      }
+    inputTo.oninput = () => {
+      console.log(1234)
+      sliderComponent.onUpdateValueTo(inputFrom.value);
     }
   }
 }
