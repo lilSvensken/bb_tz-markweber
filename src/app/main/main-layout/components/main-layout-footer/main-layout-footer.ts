@@ -1,5 +1,7 @@
 import './main-layout-footer.scss';
 import { CommonDoubleSlider } from '@common/components/common-double-slider/common-double-slider';
+import { CommonSelect } from '@common/components/common-select/common-select';
+import { OptionsSelect } from '@common/interfaces/options-select';
 
 interface ParamsSlider {
   index: number;
@@ -16,8 +18,8 @@ export class MainLayoutFooter {
     const inputSquareTo: HTMLInputElement = hostElem.querySelector('#input-square-to');
     const inputCostFrom: HTMLInputElement = hostElem.querySelector('#input-cost-from');
     const inputCostTo: HTMLInputElement = hostElem.querySelector('#input-cost-to');
-    const selectTitleElem: HTMLInputElement = hostElem.querySelector('#select-title');
-    const optionsWrapElem: HTMLInputElement = hostElem.querySelector('#options-wrap');
+
+    this.setSelect();
 
     const paramsSquareSlider: ParamsSlider = {
       index: 0,
@@ -42,17 +44,6 @@ export class MainLayoutFooter {
     inputSquareTo.value = String(paramsSquareSlider.start[1]);
     inputCostFrom.value = String(paramsCostSlider.start[0]);
     inputCostTo.value = String(paramsCostSlider.start[1]);
-
-    let isOpenSelectOptions = false;
-
-    selectTitleElem.onclick = () => {
-      if (isOpenSelectOptions) {
-        optionsWrapElem.classList.remove('mod-show');
-      } else {
-        optionsWrapElem.classList.add('mod-show');
-      }
-      isOpenSelectOptions = !isOpenSelectOptions;
-    }
   }
 
   settingSlider(inputFrom: HTMLInputElement, inputTo: HTMLInputElement, paramsSlider: ParamsSlider) {
@@ -86,5 +77,29 @@ export class MainLayoutFooter {
       console.log(1234)
       sliderComponent.onUpdateValueTo(inputFrom.value);
     }
+  }
+
+  setSelect(): void {
+    const selectTitle = 'выберете';
+    const optionsSelect: OptionsSelect[] = [
+      {
+        name: 'Северный парк',
+        value: 'Северный парк'
+      },
+      {
+        name: 'Станция столичная',
+        value: 'Станция столичная'
+      },
+      {
+        name: 'Лето',
+        value: 'Лето'
+      },
+      {
+        name: 'Сказочный сад',
+        value: 'Сказочный сад'
+      }
+    ]
+
+    new CommonSelect(selectTitle, optionsSelect);
   }
 }

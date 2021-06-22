@@ -10,7 +10,6 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
-    ['example-page']: path.resolve(__dirname, 'src/app/main/pages/example-page/example-page.ts'),
     ['main-page']: path.resolve(__dirname, 'src/app/main/pages/main-page/main-page.ts')
   },
   mode: 'development',

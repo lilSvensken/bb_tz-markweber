@@ -1,0 +1,58 @@
+@import 'styles/colors';
+
+.common-select {
+  &.input-wrap {
+    cursor: pointer;
+    width: 270px;
+    position: relative;
+  }
+
+  &.select-title, &.options-wrap {
+    background-color: $secondary-gray-color;
+    width: 100%;
+  }
+
+  &.select-title, &.option-item {
+    font-size: 16px;
+    line-height: 16px;
+    color: $main-color;
+    padding: 20px 14px;
+  }
+
+  &.select-title {
+    background-image: url('assets/icons/arrow-down.svg');
+    background-size: 12px 8px;
+    background-position: top 50% right 24px;
+    border-radius: 7px;
+  }
+
+  &.options-wrap {
+    position: absolute;
+    background-color: rgba(160, 160, 160, 0.68);
+    bottom: 59px;
+    opacity: 1;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms;
+
+    &.mod-show {
+      max-height: 400px;
+      overflow: auto;
+    }
+  }
+
+  &.option-item {
+    display: block;
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+
+    &:hover {
+      background-color: rgba(120, 120, 120, 0.68);
+    }
+  }
+}

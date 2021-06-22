@@ -108,3 +108,13 @@
     max-width: 212px;
   }
 }
+
+.gl-control-inputs-wrap {
+  display: flex;
+  border-radius: 7px;
+  overflow: hidden;
+
+  &.mod-select {
+    overflow: inherit;
+  }
+}
